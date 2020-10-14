@@ -5,6 +5,8 @@
 --Modu³ 3 - Zadanie 1 
 --Utwórz nowy schemat o nazwie training
 
+DROP SCHEMA IF EXISTS training;
+
 CREATE SCHEMA training;
 
 
@@ -91,6 +93,7 @@ DROP SCHEMA training_zs CASCADE;
 -- Korzystaj¹c ze sk³adni CREATE ROLE, stwórz nowego u¿ytkownika o nazwie user_training z
 --mo¿liwoœci¹ zalogowania siê do bazy danych i has³em silnym
 
+
 CREATE ROLE user_training WITH LOGIN PASSWORD 'TrudneHaslo111@';
 
 
@@ -131,8 +134,9 @@ GRANT CONNECT ON DATABASE postgres TO reporting_ro;
 
 GRANT USAGE, CREATE ON SCHEMA training TO reporting_ro;
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA training TO reporting_ro;
+--GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA training TO reporting_ro;
 
+GRANT ALL PRIVILEGES ON SCHEMA training TO reporting_ro;
 
 --Modu³ 4 - Zadanie 6
 --Utwórz nowego u¿ytkownika reporting_user z mo¿liwoœci¹ logowania siê do bazy danych i haœle silnym :)
